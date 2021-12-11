@@ -1,0 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id']))
+	{
+	header("location:./login/login.php");
+	}
+else
+	{
+	header("location:./admin_console.php");
+	}
+?>
