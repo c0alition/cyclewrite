@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="cw.css">
+  <title>CYCLEWRITE.COM</title>
+  <script>
+    const randomNumber = 1 + Math.floor(Math.random()*15);
+    const headerBackgroundImage = "url('./bg/" + randomNumber + ".jpg')";
+    window.onload = function() {
+      document.getElementById("image-header").style.backgroundImage = headerBackgroundImage;
+    }
+  </script>
+</head>
+
+<body>
+<header>
+<div class="main-header-container">
+  <div class="main-header-logo">
+    <h3 onclick="window.location='./admin.php'">CYCLEWRITE.COM</h3>
+  </div>
+
+  <p>This website is now a lesson in data recovery.</p>
+  <div class="main-header-topnav">
+    <div class="navlink">
+      <a href="#">Home</a>
+    </div>
+    <div class="navlink dropdown">
+      <a href="#">Browse</a>
+        <div class="dropdown-content">
+          <a href="#">Reading</a>
+          <a href="#">Pictures</a>
+          <a href="#">Contributors</a>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="image-header" id="image-header"></div>
+<hr />
+</header>
+
+<center>
+<h1>CYCLEWRITE</h1>
+<h5>PLAN-CYCLE-EXPERIENCE-WRITE-REPEAT</h5>
+</center>
+
+<div class="entry-thumbnail-container">
+
+  <div class="entry-thumbnail">
+    <a href="view.php?entry=56">
+      <div class="entry-thumbnail-header">
+        <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
+      </div>
+      <div class="entry-thumbnail-content-container">
+        <div class="entry-thumbnail-photo"></div>
+        <div class="entry-thumbnail-snippet">
+          <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="entry-thumbnail">
+    <a href="view.php?entry=546">
+      <div class="entry-thumbnail-header">
+        <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
+      </div>
+      <div class="entry-thumbnail-content-container">
+        <div class="entry-thumbnail-photo"></div>
+        <div class="entry-thumbnail-snippet">
+          <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>
+</body>
