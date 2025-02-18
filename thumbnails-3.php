@@ -19,4 +19,4 @@ function thumbnail_query_db()
 
 $blog_entry_thumbnails = thumbnail_query_db();
 
-?>
+

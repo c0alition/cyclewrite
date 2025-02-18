@@ -1,11 +1,15 @@
 *  {font-family: "Verdana", "Courier New", monospace;}
 * a{text-decoration:none; color: black;}
 
+
+/* main header, logo, and topnav */
 .main-header-container {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 100%;
     max-height: 250px;
     background-color: #ffffff;
 }
@@ -36,7 +40,7 @@
 
 
 
-
+/*image header*/
 .image-header {
     display: block;
     min-height: 400px;
@@ -45,10 +49,11 @@
     
 }
 
-
+/* blog entry thumbnail */
 .entry-thumbnail-container {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
     align-items: center;
     width: 100%;
     background-color: #ffffff;
