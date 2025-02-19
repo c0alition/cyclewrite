@@ -1,4 +1,5 @@
 <?php	
+$quantity = $_GET['q'];
 function generate_thumbnail($quantity) {
     include("config.php");
     $q = "SELECT * FROM entry ORDER BY upload_date DESC LIMIT" . $quantity;
