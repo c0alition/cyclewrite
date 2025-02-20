@@ -85,7 +85,7 @@
 /* blog entry thumbnail */
 .entry-thumbnail-container {
     display: block;
-    justify-content: space-between;f
+    justify-content: space-between;
     margin-top: 20px;
     align-items: center;
     width: 100%;
@@ -95,7 +95,7 @@
     display: inline-block;
     justify-content: space-between;
     align-items: center;
-    width: 95ds%;
+    width: 95%;
     background-color: #ffffff;
 }
 .entry-thumbnail-header {
