@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="cw.css">
   <title>CYCLEWRITE.COM</title>
   <script>
-    const randomNumber = 1 + Math.floor(Math.random()*15);
+    const randomNumber = 1 + Math.floor(Math.random()*5);
     const headerBackgroundImage = "url('./bg/" + randomNumber + ".jpg')";
     window.onload = function() {
       document.getElementById("image-header").style.backgroundImage = headerBackgroundImage;
@@ -19,7 +19,7 @@
 <header>
 <div class="main-header-container">
   <div class="main-header-logo">
-    <h3 onclick="window.location='/login/login.php'">CYCLEWRITE.COM</h3>
+    <h3>CYCLEWRITE.COM</h3>
   </div>
 
   <p>Cyclewrite is currently in archive mode.</p>
@@ -51,15 +51,29 @@
 
 <div class="main-feed-container">
   <div class="entry-feed-container">
-    <?php include('get-entries.php'); ?>
     <div class="entry-thumbnail-container">
+
       <div class="entry-thumbnail">
-        <a href="view.php?entry=546">
+        <a href="articles/a-tired-overnighter/index.html">
+          <div class="entry-thumbnail-header">
+            <h5>A Tired Overnighter</h5>
+          </div>
+          <div class="entry-thumbnail-content-container">
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/1/album/11/26/11261-preview.jpg'); background-size: cover; background-position: top center;"></div>
+            <div class="entry-thumbnail-snippet">
+              <p>Some trips need a little more priming than others to get going. This trip was definitely one of those.. I've been a bit burnt out from a long race season and I can't quite figure out how to shake it, but a bikepacking trip always seems like a good idea.</p>            
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="entry-thumbnail">
+        <a href="articles/playing-in-the-mud-a-road-cyclists-first-mtb-race/index.html">
           <div class="entry-thumbnail-header">
             <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
           </div>
           <div class="entry-thumbnail-content-container">
-            <div class="entry-thumbnail-photo"></div>
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/11/album/11/20/112011-preview.jpg'); background-size: cover; background-position: top center;"></div>
             <div class="entry-thumbnail-snippet">
               <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
             </div>
@@ -68,46 +82,75 @@
       </div>
 
       <div class="entry-thumbnail">
-        <a href="view.php?entry=546">
+        <a href="articles/bikepacking-an-introduction/index.html">
           <div class="entry-thumbnail-header">
-            <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
+            <h5>Bikepacking: An Introduction</h5>
           </div>
           <div class="entry-thumbnail-content-container">
-            <div class="entry-thumbnail-photo"></div>
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/10/album/11/19/111910-preview.jpg'); background-size: cover; background-position: top center;"></div>
             <div class="entry-thumbnail-snippet">
-              <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
+              <p>I had just begun to dabble in the weird world of mountain biking when I agreed to a 40-mile roundtrip overnight on a packed mountain bike. Up until May of this year, I was growing as a road cyclist and had no interest in the seeming perversity that leads people to ride bikes off-road...</p>
             </div>
           </div>
         </a>
       </div>
 
       <div class="entry-thumbnail">
-        <a href="view.php?entry=56">
+        <a href="articles/trail-exploring-and-satisfaction/index.html">
           <div class="entry-thumbnail-header">
-            <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
+            <h5>Trail Exploring and Satisfaction</h5>
           </div>
           <div class="entry-thumbnail-content-container">
-            <div class="entry-thumbnail-photo"></div>
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/1/album/11/28/11281-preview.jpg'); background-size: cover; background-position: top center;"></div>
             <div class="entry-thumbnail-snippet">
-              <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
+              <p>This weekend I decided it was time for a solo trip. I have neglected my race bike for a while and figured it needed some love. I refreshed the Stans, adjusted the derailleur, and replaced a set of worn brake pads. To finish everything off I borrowed a friend's frame bag that would fit my bike...</p>
             </div>
           </div>
         </a>
       </div>
 
       <div class="entry-thumbnail">
-        <a href="view.php?entry=546">
+        <a href="articles/warbird-round-2/index.html">
           <div class="entry-thumbnail-header">
-            <h5>Playing in the Mud: A Road Cyclist's First MTB Race</h5>
+            <h5>Warbird Round 2</h5>
           </div>
           <div class="entry-thumbnail-content-container">
-            <div class="entry-thumbnail-photo"></div>
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/1/album/12/18/12181-preview.jpg'); background-size: cover; background-position: top center;"></div>
             <div class="entry-thumbnail-snippet">
-              <p>I hear my alarm go off and quickly reached out to silence my buzzing, screeching phone. The clock reads 5am. I head outside and the sun still hasn't risen yet and it's cold, very cold. It's early April and morning air is still a frosty thirty degrees in the valley. I'm cold, tired, and hungry, but feel a growing rush of adrenaline which can mean on...</p>
+              <p>Took the Warbird out for a 2 day trip this weekend with a friend. Previously didn't care for it bikepacking, but I got some new bags, made a few changes, and the terrain was a LOT of gravel grinding anyway. Figured it was worth another shot...</p>
             </div>
           </div>
         </a>
       </div>
+
+      <div class="entry-thumbnail">
+        <a href="articles/charting-unknown-territory-nh-to-ma/index.html">
+          <div class="entry-thumbnail-header">
+            <h5>Charting Unknown Territory: NH to MA</h5>
+          </div>
+          <div class="entry-thumbnail-content-container">
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/10/album/12/20/122010-preview.jpg'); background-size: cover; background-position: top center;"></div>
+            <div class="entry-thumbnail-snippet">
+              <p>This has begun to feel like old hat. Sometime during the week, I tell Jonathan that I have nothing planned for the upcoming weekend or he says, “bikepack this weekend?” And next thing you know, we’re knee deep in elephants, as the saying goes (that’s not a saying)...</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="entry-thumbnail">
+        <a href="articles/xmat-bikepacking-across-massachusetts/index.html">
+          <div class="entry-thumbnail-header">
+            <h5>XMAT: Bikepacking Across Massachusetts</h5>
+          </div>
+          <div class="entry-thumbnail-content-container">
+            <div class="entry-thumbnail-photo" style="background-image: url('uploads/1/album/5/30/5301-preview.jpg'); background-size: cover; background-position: top center;"></div>
+            <div class="entry-thumbnail-snippet">
+              <p>The morning started off quick. Alarm, final gear check, grab some Dunkin (this is Massachusetts after all) on the way out of town. I dropped by to pick up Pat and he was ready to roll. Everything went just as another trip on the bike out in the woods. This was going to be an awesome weekend...</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
     </div>
   </div>
 
@@ -129,7 +172,6 @@
     </a>
   </div>
 </div>
-
 
 </body>
 </html>

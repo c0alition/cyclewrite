@@ -58,7 +58,7 @@
 /* side feed */
 .side-feed-container {
     display: block;
-    margin-right: 5%;
+    margin-right: 10%;
     width: 25%;
     background-color: #ffffff;
     border: #000 1px solid;
@@ -118,10 +118,8 @@
     display: block;
     width: 30%;
     max-height: 195px;
-    background-image: url("./uploads/1/album/5/30/5301-preview.jpg");
-    background-size: cover;
-    background-position: center top;
 }
+
 .entry-thumbnail-snippet {
     display: block;
     height: 195px;
