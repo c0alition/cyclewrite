@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     newTextAreaButton.addEventListener('click', createNewTextArea);    
-    newMultiBoxButton.addEventListener('click', createNewMultiBoxSet);
+    newMultiBoxButton.addEventListener('click', createNewContentArea);
 
 
     // Create new text area
@@ -53,33 +53,100 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-/*
+    // Check layout selection and return pattern number
     function processContentLayout() {
+
+        let layoutTotal = 0;
+        contentLayout = {
+            left: 0,
+            center: 0,
+            right: 0
+        };
         
-        let leftContentSection = document.createElement('div');
+    
 
         document.querySelectorAll('.multi-box').forEach(function(box) {
             if (box.classList.contains('clicked')) {
                 if (box.classList.contains('left')) {
                     contentLayout.left++;
+                    layoutTotal++;
                 } else if (box.classList.contains('center')) {
                     contentLayout.center++;
+                    layoutTotal++;
                 } else if (box.classList.contains('right')) {
                     contentLayout.right++;
+                    layoutTotal++;
                 }   
             }
-        if (contentLayout.left == 0) {
-            if (contentLayout.center == 0) {
-                let centerContentSection = document.createElement('div');
-                if (contentLayout.right == 1) {
-                    let rightContentSection = document.createElement('div');
-                } else {
-                    newContentSection.className = 'content-section right';
-                }
-            }
-        } 
-        */
+        }); 
 
+            // full width
+        if (layoutTotal == 3) {
+            return 1;  
+            // All divs 30 center text
+            } else if ((layoutTotal == 2 && contentLayout.center == 0) || layoutTotal == 0 || (layoutTotal == 1 && contentLayout.center == 1)) {
+                return 2;
+            // 60/30 left/right
+            } else if (contentLayout.center == 1 && layoutTotal == 2) {
+                if (contentLayout.left == 1) {
+                    return 3;
+                } else if (contentLayout.right == 1) {
+                    return 4;
+                }
+            // 60/30 empty cells
+            } else if (layoutTotal == 1 && contentLayout.center == 0) {
+                if (contentLayout.left == 1) {
+                    return 5;
+                } else if (contentLayout.right == 1) {
+                    return 6;
+                }
+        }
+    }
+    
+    function createNewContentArea() {
+        let pattern = processContentLayout();
+        const contentAreaContainer = document.createElement('div');
+        contentAreaContainer.className = 'content-area-container';
+        scratchpad.appendChild(contentAreaContainer);
+        
+        if (pattern == 1) {
+            const newContentArea = document.createElement('div');
+            newContentArea.className = 'content-area-90';
+            contentAreaContainer.appendChild(newContentArea);
+                console.log(newContentArea.className);
+        //three div
+        } else if (pattern == 2) {
+        for (let i = 0; i < 3; i++) {
+            const newContentArea = document.createElement('div');
+            newContentArea.className = 'content-area-30';
+            contentAreaContainer.appendChild(newContentArea);
+            console.log(newContentArea.className);
+        }
+        //two div left 60 right 30
+        } else if (pattern === 3 || pattern === 6) {
+                const newContentArea1 = document.createElement('div');
+                const newContentArea2 = document.createElement('div');
+                newContentArea1.className = 'content-area-60';
+                newContentArea2.className = 'content-area-30';
+                contentAreaContainer.appendChild(newContentArea1);
+                contentAreaContainer.appendChild(newContentArea2);
+                console.log(newContentArea1.className);
+
+        //two div left 30 right 60
+        } else if (pattern === 4 || pattern === 5) {
+            const newContentArea1 = document.createElement('div');
+            const newContentArea2 = document.createElement('div');
+            newContentArea1.className = 'content-area-30';
+            newContentArea2.className = 'content-area-60';
+            contentAreaContainer.appendChild(newContentArea1);
+            contentAreaContainer.appendChild(newContentArea2);
+            console.log(newContentArea1.className);
+
+            }
+        
+        
+
+    }
 
 
         

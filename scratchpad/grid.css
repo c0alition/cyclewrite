@@ -21,7 +21,6 @@
     width: 100%;
 }
 .multi-box {
-    display: inline-block;
     width: 30%;
     height: auto;
     aspect-ratio: 1 / 1;
@@ -41,6 +40,7 @@
     border-color: #a9a9a9;
 }
 
+
 .text-input-container {
     position: relative;
     top: 10px;
@@ -57,4 +57,28 @@
     font-size: 16px; 
     overflow: hidden; 
     resize: none; 
+}
+
+.content-area-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.content-area-30 {
+    width: 30%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: blue;
+}
+.content-area-60 {
+    width: 60%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: orange;
+}
+.content-area-90 {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: green;
 }
