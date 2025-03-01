@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     
-    const scratchpad = document.getElementById('scratchpad');
+    const sheet = document.getElementById('sheet');
     const contentSelector = document.getElementById('contentSelector');
     const newMultiBoxButton = document.getElementById('newMultiBox');
     const newTextAreaButton = document.getElementById("newTextArea");
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newTextArea.className = 'text-input';
         newTextArea.id = 'p' + [pTagId];
         newTextAreaContainer.appendChild(newTextArea);
-        scratchpad.appendChild(newTextAreaContainer);
+        sheet.appendChild(newTextAreaContainer);
         newTextArea.focus();
         newTextArea.addEventListener('input', extendTextArea);
         pTagId++;
@@ -103,11 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
+    // Create image/text empty divs based on layout pattern. 
     function createNewContentArea() {
         let pattern = processContentLayout();
         const contentAreaContainer = document.createElement('div');
         contentAreaContainer.className = 'content-area-container';
-        scratchpad.appendChild(contentAreaContainer);
+        sheet.appendChild(contentAreaContainer);
         
         if (pattern == 1) {
             const newContentArea = document.createElement('div');
@@ -143,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(newContentArea1.className);
 
             }
-        
+        createNewTextArea();
         
 
     }
@@ -156,15 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Extend text area down as you type
     function extendTextArea() {
         this.style.height = 'auto'; 
-        this.style.height = this.scrollHeight + 'px'; 
+        this.style.height = this.scrollHeight + 'px';
+        contentSelector.style.position = this.style.height + '5px';
     }
     
-    //Lisen for enter key and make a new textarea if pressed
+    /*Lisen for enter key and make a new textarea if pressed
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             createNewTextArea();
         }
     });
+    */
     
     createNewTextArea();
     createNewMultiBoxSet();
