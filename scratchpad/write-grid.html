@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="../cw2.css">
     <script src="write.js"></script>
 </head>
 <body>
+  <div class="write-body"></div>
+    <header>
+        <div class="main-header-container">
+          <div class="main-header-logo">
+            <h3>CYCLEWRITE.COM</h3>
+          </div>
+        
+          <p>Cyclewrite is currently in archive mode.</p>
+          <div class="main-header-topnav">
+            <div class="navlink">
+              <a href="#">Home</a>
+            </div>
+            <div class="navlink dropdown">
+              <a href="#">Browse</a>
+                <div class="dropdown-content">
+                  <a href="#">Reading</a>
+                  <a href="#">Pictures</a>
+                  <a href="#">Contributors</a>
+                </div>
+            </div>
+            <div class="navlink">
+              <a href="#">About</a>
+            </div>
+          </div>
+        </div>
+        <hr />
+        </header>
     <div id="scratchpad" class="scratchpad">
     <div id="sheet" class="sheet"></div>
     <div id="contentSelector" class="content-selector"></div>
@@ -13,6 +41,9 @@
     <button id="newMultiBox">multi box</button>
     <button id="newTextArea">text</button>
 
+
+<input type="file" id="newImage" accept="image/*">
+<img id="previewImage0" style="max-height: 300px;">
 
 </body>
 </html>

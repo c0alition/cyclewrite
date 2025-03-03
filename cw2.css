@@ -1,0 +1,188 @@
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+*  {font-family: "Verdana", "Courier New", monospace;}
+* a{text-decoration:none; color: #fff;}
+
+
+
+/* main header, logo, and topnav */
+.main-header-container {
+    margin-left: 0;
+    text-decoration: #fff;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-height: 250px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.main-header-container a { 
+    color:#fff;
+    border-radius: 5%;
+}
+.main-header-container a:hover {
+    color:rgba(0, 255, 255, .75);
+    border-radius: 10%;
+}
+.main-header-logo{
+    display: block;
+    margin-left: 1%;
+}
+.main-header-logo h3 {
+    color: #fff;
+}
+.main-header-topnav {
+    display: block;
+    margin-right: 1%
+    
+}
+.dropdown-content {
+    position: absolute;
+    display: none;
+}   
+.dropdown-content a {
+    display: block;
+    color: rgba(0, 255, 255, .75);
+    background-color: rgba(0, 0, 0);
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+    color:rgba(0, 255, 255, .75);
+}
+.navlink {
+    text-decoration: none;
+    display: inline-block; 
+}
+
+/*image header*/
+.image-header {
+    display: block;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center top;
+    
+}
+
+/*main feed*/
+.main-feed-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* side feed */
+.side-feed-container {
+    display: block;
+    margin-right: 10%;
+    width: 25%;
+    background-color: #ffffff;
+    border: #000 1px solid;
+}
+.side-feed-content-container {
+    display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.side-feed-entry-header {
+    display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/*entry feed*/
+.entry-feed-container {
+    display: inline-block;
+    margin-left: 10%;
+    width: 50%;
+    background-color: #ffffff;
+}
+
+/* blog entry thumbnail */
+.entry-thumbnail-container {
+    display: block;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+}
+.entry-thumbnail {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    background-color: #ffffff;
+}
+.entry-thumbnail-header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+.entry-thumbnail-header h5 {
+    color: #fff;
+}
+.entry-thumbnail-content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+}
+.entry-thumbnail-photo {
+    display: block;
+    width: 30%;
+    max-height: 195px;
+}
+
+.entry-thumbnail-snippet {
+    display: block;
+    height: 195px;
+    width: 60%;
+    overflow-wrap: normal;
+    margin-right: 5px;
+}
+
+/* blog entry */
+.entry-content-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.entry-content p{
+    display:block;
+    margin-top:20px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.entry-content img{
+    display:block;
+    margin-top:20px;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lower-content-container {
+    background-color: black;
+    width: 100%;
+    min-height: 500px;
+    display: block;
+}
