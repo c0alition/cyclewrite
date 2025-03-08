@@ -13,7 +13,7 @@ let contentLayout = {
     right: 0
 };
 
-newTextAreaButton.addEventListener('click', createNewMediaTypeSelector);    
+newTextAreaButton.addEventListener('click', createMediaTypeSelector);    
 newMultiBoxButton.addEventListener('click', createNewContentArea);
 
 
@@ -23,7 +23,7 @@ function createNewTextArea() {
     newTextAreaContainer.className = 'text-input-container';
     const newTextArea = document.createElement('textarea');
     newTextArea.className = 'text-input';
-    newTextArea.id = 'p' + [pTagId];
+    newTextArea.id = 'p' + pTagId;
     newTextAreaContainer.appendChild(newTextArea);
     sheet.appendChild(newTextAreaContainer);
     newTextArea.scrollIntoView();
@@ -66,9 +66,6 @@ function processContentLayout() {
         center: 0,
         right: 0
     };
-        
-    
-
     document.querySelectorAll('.multi-box').forEach(function(box) {
         if (box.classList.contains('clicked')) {
             if (box.classList.contains('left')) {
@@ -113,11 +110,11 @@ function createNewContentArea() {
     const contentAreaContainer = document.createElement('div');
     contentAreaContainer.className = 'content-area-container';
     sheet.appendChild(contentAreaContainer);
-        
+        //1 big div (actually 100% width)
     if (pattern == 1) {
         const newContentArea = document.createElement('div');
         newContentArea.className = 'content-area-90';
-        newContentArea.id = 'contentArea' + [pTagId];
+        newContentArea.id = 'contentArea' + pTagId;
         contentAreaContainer.appendChild(newContentArea);
         console.log(newContentArea.className);
         
@@ -126,7 +123,7 @@ function createNewContentArea() {
     for (let i = 0; i < 3; i++) {
         const newContentArea = document.createElement('div');
         newContentArea.className = 'content-area-30';
-        newContentArea.id = 'contentArea' + [pTagId] + [i];
+        newContentArea.id = 'contentArea' + pTagId + [i];
         contentAreaContainer.appendChild(newContentArea);
         console.log(newContentArea.className);
     }
@@ -135,9 +132,9 @@ function createNewContentArea() {
         const newContentArea1 = document.createElement('div');
         const newContentArea2 = document.createElement('div');
         newContentArea1.className = 'content-area-60';
-        newContentArea1.id = 'contentArea' + [pTagId] + '-0';
+        newContentArea1.id = 'contentArea' + pTagId + '-0';
         newContentArea2.className = 'content-area-30';
-        newContentArea2.id = 'contentArea' + [pTagId] + '-1';
+        newContentArea2.id = 'contentArea' + pTagId + '-1';
         contentAreaContainer.appendChild(newContentArea1);
         contentAreaContainer.appendChild(newContentArea2);
         console.log(newContentArea1.className);
@@ -147,16 +144,16 @@ function createNewContentArea() {
         const newContentArea1 = document.createElement('div');
         const newContentArea2 = document.createElement('div');
         newContentArea1.className = 'content-area-30';
-        newContentArea1.id = 'contentArea' + [pTagId] + '-0';
+        newContentArea1.id = 'contentArea' + pTagId + '-0';
         newContentArea2.className = 'content-area-60';
-        newContentArea2.id = 'contentArea' + [pTagId] + '-1';
+        newContentArea2.id = 'contentArea' + pTagId + '-1';
         contentAreaContainer.appendChild(newContentArea1);
         contentAreaContainer.appendChild(newContentArea2);
         console.log(newContentArea1.className);
 
     }
     contentAreaContainer.querySelectorAll('div').forEach((area) => {
-        area.appendChild(createNewMediaTypeSelector());
+        area.appendChild(createMediaTypeSelector(area));
     });
     createNewTextArea();
 }
@@ -176,39 +173,95 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-//create image/text selector
-function createNewMediaTypeSelector() {
+// Creates the media type selector for generated content area.
+function createMediaTypeSelector(contentArea) {
     const mediaTypeSelector = document.createElement('div');
     mediaTypeSelector.className = 'media-type-selector';
-    //image input, hidden
+  
+        // Create a hidden file input for selecting an image.
     const imageInput = document.createElement('input');
     imageInput.type = 'file';
     imageInput.accept = 'image/*';
     imageInput.className = 'image-input';
-    //image button/text to trigger input
-    const imageButton = document.createElement('h3');
+
+        // Create a button with listener to trigger image input on click.
+    const imageButton = document.createElement('h3'); 
     imageButton.className = 'image-button';
     imageButton.textContent = '+ Image';
-    imageButton.id = 'newImg' + [pTagId];
     imageButton.addEventListener('click', () => {
-        imageInput.click();
-      });      
-    //text button/text
+      imageInput.click();
+    });
+  
+        // Create a button with listener for adding text area.
     const textButton = document.createElement('h3');
     textButton.className = 'text-button';
     textButton.textContent = '+ Text';
-    textButton.id = 'newP' + [pTagId];
-    textButton.addEventListener('click', createNewTextArea);
-    //add the buttons to the selector areas
+    textButton.addEventListener('click', () => {
+      updatePreviewTextArea(contentArea, mediaTypeSelector);
+    });
+  
+        // Attach the change listener for the image input.
+    imageInput.addEventListener('change', (event) => {
+      const selectedImage = event.target.files[0];
+      if (selectedImage) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          updatePreviewImage(contentArea, e.target.result, mediaTypeSelector);
+        };
+        reader.readAsDataURL(selectedImage);
+      }
+    });
+  
     mediaTypeSelector.appendChild(imageButton);
+    mediaTypeSelector.appendChild(imageInput);
     mediaTypeSelector.appendChild(textButton);
-    console.log(mediaTypeSelector);
+  
     return mediaTypeSelector;
-}
-
+  }
+  
+  // Update this content area with an image preview.
+  function updatePreviewImage(contentArea, dataURL, mediaTypeSelector) {
+    const previewImg = document.createElement('img');
+    previewImg.src = dataURL;
+    previewImg.style.display = 'block';
+    previewImg.style.position = 'relative';
+    // probably hacky but whatever. add extra to width and height to cover newcontentarea placeholder div (dotted rounded borders) 
+    previewImg.style.width = 'calc(100% + 10px)';   
+    previewImg.style.height = 'calc(100% + 10px)';  
+    previewImg.style.margin = '-5px';              
+    previewImg.style.objectFit = 'cover';          
+    previewImg.style.objectPosition = 'center';
+    contentArea.appendChild(previewImg);
+  
+    // hide +image +text
+    if (mediaTypeSelector.parentNode) {
+        mediaTypeSelector.style.display = 'none';
+      }
+  }
+  
+  // Update this content area with new text area to fit div size. if there is a picture already check it's dimensions and use that for textarea dimensions
+  function updatePreviewTextArea(contentArea, mediaTypeSelector) {
+    let contentWidth = contentArea.clientWidth || 200;
+    let contentHeight = contentArea.clientHeight || 200;
+    const textArea = document.createElement('textarea');
+    textArea.className = 'text-input';
+    // probably hacky but whatever. add extra to width and height to cover newcontentarea placeholder div (dotted rounded borders)
+    textArea.style.width = 'calc(100% + 10px)';   
+    textArea.style.height = 'calc(100% + 10px)';  
+    textArea.style.margin = '-5px';   
+    contentArea.appendChild(textArea);
+  
+    // hide +image +text
+    if (mediaTypeSelector.parentNode) {
+        mediaTypeSelector.style.display = 'none';
+      }
+  
+  }
+  
+    
 function imageUploadPreview() {
 
-    const newImage = document.getElementById('newImg' + [pTagId]);
+    const newImage = document.getElementById('newImg' + pTagId);
     const previewImage0 = document.getElementById('previewImage0');
     newImage.addEventListener('change', (event) => {
         const currentImage = event.target.files[0];
