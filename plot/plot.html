@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="plot.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://openlayers.org/en/latest/css/ol.css">
+</head>
+<body>
+  <h1>Select File</h1>
+  <input type="file" id="gpxFileInput" accept=".gpx">
+  <div id="mapPreviewContainer">
+    <div id="map" style="height: 500px; width: 100%;"></div>
+    <svg id="svgOutput" width="600" height="600"></svg>
+  </div>
+  <p>to prime the div?</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/ol@v10.4.0/dist/ol.js"></script>
+  <script src="plot.js" defer></script>
+</body>
+</html>

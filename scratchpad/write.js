@@ -13,8 +13,8 @@ let contentLayout = {
     right: 0
 };
 
-newTextAreaButton.addEventListener('click', createMediaTypeSelector);    
 newMultiBoxButton.addEventListener('click', createNewContentArea);
+newTextAreaButton.addEventListener('click', packageEntry);    
 
 
     // Create new text area
@@ -123,7 +123,7 @@ function createNewContentArea() {
     for (let i = 0; i < 3; i++) {
         const newContentArea = document.createElement('div');
         newContentArea.className = 'content-area-30';
-        newContentArea.id = 'contentArea' + pTagId + [i];
+        newContentArea.id = 'contentArea' + pTagId + ' - ' + [i];
         contentAreaContainer.appendChild(newContentArea);
         console.log(newContentArea.className);
     }
@@ -284,4 +284,20 @@ createNewMultiBoxSet();
 
 });
 
+function packageEntry() {
 
+    const entrySheet = document.getElementById('sheet');
+    const package = {};
+
+    if (entrySheet) {
+    const sections = entrySheet.querySelectorAll('div');
+    
+    divs.forEach((div, index) => {
+        const id = div.id || `div${index + 1}`; // Use the ID or generate a unique key
+        divsObject[id] = div;
+    });
+    console.log('Entry Data', divsObject);
+    } else {
+    console.error('Container not found!');
+    }
+};
